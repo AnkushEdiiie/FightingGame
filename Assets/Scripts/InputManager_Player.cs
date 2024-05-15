@@ -149,8 +149,6 @@ public class InputManager_Player : MonoBehaviour
         {
             movement = Vector2.zero;
         }
-
-
     }
 
     void FixedUpdate()
@@ -204,6 +202,7 @@ public class InputManager_Player : MonoBehaviour
                 animator.SetBool("Walk Backward", false);
                 animator.ResetTrigger("JumpTrigger");
                 animator.SetTrigger("JumpForwardTrigger");
+                animator.applyRootMotion = true;
                 StartCoroutine(GoInAir(0.25f));
             }
             _playerState = PlayerAnimationState.forwardJump;
@@ -498,6 +497,8 @@ public class InputManager_Player : MonoBehaviour
         canMoveActually = true;
         _playerState = PlayerAnimationState.idle;
         _playerManager_Player.DisableAllColliders(false, 0);
+        animator.applyRootMotion = false;
+
     }
 
     IEnumerator ResetMovement(float _timeToResetMovement)
@@ -508,5 +509,6 @@ public class InputManager_Player : MonoBehaviour
         canMoveActually = true;
         _playerState = PlayerAnimationState.idle;
         _playerManager_Player.DisableAllColliders(false, 0);
+        animator.applyRootMotion = false;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private InputManager_Player _inputManager_Player;
+    private GameManager _gamemanager;
 
     public Characters_Data characterData;
 
@@ -20,6 +21,9 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        if(GameObject.Find("Game_Manager"))
+            _gamemanager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+
         _inputManager_Player = gameObject.GetComponentInParent<InputManager_Player>();
     }
 
@@ -89,32 +93,36 @@ public class PlayerManager : MonoBehaviour
         if(_inputManager_Player.playerIndex == 1)
         {
             Debug.Log("Player 1 Trigger Method Called" + other.gameObject);
-            Debug.Log("Player 2 Trigger Method Called" + other.gameObject);
             gameObject.GetComponent<Animator>().applyRootMotion = true;
             if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.punch)
             {
                 Debug.Log("Player 2 Punch");
                 gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
+                _gamemanager.HealthBar_Players_Method(1, 10f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.kick)
             {
                 Debug.Log("Player 2 Kick");
                 gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+                _gamemanager.HealthBar_Players_Method(1, 15f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.upperCut)
             {
                 Debug.Log("Player 2 Upper Cut");
                 gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+                _gamemanager.HealthBar_Players_Method(1, 15f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.crouch)
             {
                 Debug.Log("Player 2 Crouch");
                 gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+                _gamemanager.HealthBar_Players_Method(1, 15f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.jab)
             {
                 Debug.Log("Player 2 Jab");
                 gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
+                _gamemanager.HealthBar_Players_Method(1, 10f);
             }
             DisableColliders(false, 0);
             StartCoroutine("ResetRootMotion");
@@ -127,26 +135,31 @@ public class PlayerManager : MonoBehaviour
             {
                 Debug.Log("Player 2 Punch");
                 gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
+                _gamemanager.HealthBar_Players_Method(2, 10f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.kick)
             {
                 Debug.Log("Player 2 Kick");
                 gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+                _gamemanager.HealthBar_Players_Method(2, 15f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.upperCut)
             {
                 Debug.Log("Player 2 Upper Cut");
                 gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+                _gamemanager.HealthBar_Players_Method(2, 15f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.crouch)
             {
                 Debug.Log("Player 2 Crouch");
                 gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+                _gamemanager.HealthBar_Players_Method(2, 15f);
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.jab)
             {
                 Debug.Log("Player 2 Jab");
                 gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
+                _gamemanager.HealthBar_Players_Method(2, 10f);
             }
             DisableColliders(false, 0);
             StartCoroutine("ResetRootMotion");

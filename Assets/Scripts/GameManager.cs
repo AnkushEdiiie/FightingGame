@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class GameManager : MonoBehaviour
     public Transform Player_1_parent;
     public Transform Player_2_parent;
 
+    public Slider _player_1_HeathBar;
+    public Slider _player_2_HeathBar;
+
     private void Start()
     {
         StartCoroutine("Instantiate_Players");
@@ -18,7 +22,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator Instantiate_Players()
     {
-        _player_1 = Instantiate(_characters[PlayerPrefs.GetInt("Selected_Character_Player_1")], new Vector3(0f, 0f, -2f), Quaternion.identity);
+        _player_1 = Instantiate(_characters[Random.Range(0, _characters.Count - 1)], new Vector3(0f, 0f, -2f), Quaternion.identity);
+
+        //_player_1 = Instantiate(_characters[PlayerPrefs.GetInt("Selected_Character_Player_1")], new Vector3(0f, 0f, -2f), Quaternion.identity);
         _player_1.name = "PLAYER 1";
         _player_1.transform.parent = Player_1_parent;
         Player_1_parent.GetComponent<InputManager_Player>().animator = _player_1.GetComponent<Animator>();
@@ -27,8 +33,9 @@ public class GameManager : MonoBehaviour
 
         Player_1_parent.GetComponent<InputManager_Player>().GetRotationMultiplier();
 
+        _player_2 = Instantiate(_characters[Random.Range(0, _characters.Count - 1)], new Vector3(0f, 0f, 2f), Quaternion.Euler(0f, 180f, 0f));
 
-        _player_2 = Instantiate(_characters[PlayerPrefs.GetInt("Selected_Character_Player_2")], new Vector3(0f, 0f, 2f), Quaternion.Euler(0f, 180f, 0f));
+        //_player_2 = Instantiate(_characters[PlayerPrefs.GetInt("Selected_Character_Player_2")], new Vector3(0f, 0f, 2f), Quaternion.Euler(0f, 180f, 0f));
         _player_2.name = "PLAYER 2";
         _player_2.transform.parent = Player_2_parent;
         Player_2_parent.GetComponent<InputManager_Player>().animator = _player_2.GetComponent<Animator>();
@@ -37,7 +44,46 @@ public class GameManager : MonoBehaviour
 
         Player_2_parent.GetComponent<InputManager_Player>().GetRotationMultiplier();
 
-
         yield return new WaitForSeconds(0.1f);
     }
+
+    public void HealthBar_Players_Method(int _playerIndex, float _healthValue)
+    {
+        if(_playerIndex == 1)
+        {
+            if(_player_1_HeathBar.value > 0)
+            {
+                if(_player_1_HeathBar.value < _healthValue)
+                {
+                    _player_1_HeathBar.value = 0f;
+                    Debug.Log("Game Over");
+                }
+                else
+                {
+                    _player_1_HeathBar.value -= _healthValue;
+                    if (_player_1_HeathBar.value == 0f)
+                    {
+                        Debug.Log("Game Over");
+                    }
+                }
+            }
+        }
+        else if(_playerIndex == 2)
+        {
+            if (_player_2_HeathBar.value < _healthValue)
+            {
+                _player_2_HeathBar.value = 0f;
+                Debug.Log("Game Over");
+            }
+            else
+            {
+                _player_2_HeathBar.value -= _healthValue;
+                if(_player_2_HeathBar.value == 0f)
+                {
+                    Debug.Log("Game Over");
+                }
+            }
+        }
+    }
+
 }
