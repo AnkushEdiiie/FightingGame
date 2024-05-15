@@ -37,8 +37,8 @@ public class PlayerManager : MonoBehaviour
 
     public void EnableColliderForJab(bool _enable, int _playerIndex)
     {
-        _leftHand_Collider.enabled= _enable;
-        _tempColliders.Add(_leftHand_Collider);
+        _leftLeg_Collider.enabled= _enable;
+        _tempColliders.Add(_leftLeg_Collider);
     }
 
     public void EnableColliderForUpperCut(bool _enable, int _playerIndex)
@@ -83,13 +83,12 @@ public class PlayerManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ground"))
-            { return; }
+        { 
+            return; 
+        }
         if(_inputManager_Player.playerIndex == 1)
         {
             Debug.Log("Player 1 Trigger Method Called" + other.gameObject);
-        }
-        else if(_inputManager_Player.playerIndex == 2)
-        {
             Debug.Log("Player 2 Trigger Method Called" + other.gameObject);
             gameObject.GetComponent<Animator>().applyRootMotion = true;
             if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.punch)
@@ -100,7 +99,7 @@ public class PlayerManager : MonoBehaviour
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.kick)
             {
                 Debug.Log("Player 2 Kick");
-                gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
+                gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
             }
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.upperCut)
             {
@@ -115,7 +114,39 @@ public class PlayerManager : MonoBehaviour
             else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.jab)
             {
                 Debug.Log("Player 2 Jab");
+                gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
+            }
+            DisableColliders(false, 0);
+            StartCoroutine("ResetRootMotion");
+        }
+        else if(_inputManager_Player.playerIndex == 2)
+        {
+            Debug.Log("Player 2 Trigger Method Called" + other.gameObject);
+            gameObject.GetComponent<Animator>().applyRootMotion = true;
+            if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.punch)
+            {
+                Debug.Log("Player 2 Punch");
+                gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
+            }
+            else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.kick)
+            {
+                Debug.Log("Player 2 Kick");
                 gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+            }
+            else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.upperCut)
+            {
+                Debug.Log("Player 2 Upper Cut");
+                gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+            }
+            else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.crouch)
+            {
+                Debug.Log("Player 2 Crouch");
+                gameObject.GetComponent<Animator>().SetTrigger("KnockdownTrigger");
+            }
+            else if (other.gameObject.GetComponentInParent<InputManager_Player>()._playerState == InputManager_Player.PlayerAnimationState.jab)
+            {
+                Debug.Log("Player 2 Jab");
+                gameObject.GetComponent<Animator>().SetTrigger("LightHitTrigger");
             }
             DisableColliders(false, 0);
             StartCoroutine("ResetRootMotion");

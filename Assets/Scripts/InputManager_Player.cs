@@ -302,7 +302,7 @@ public class InputManager_Player : MonoBehaviour
                 animator.SetBool("Walk Forward", false);
                 animator.SetBool("Walk Backward", false);
                 _playerManager_Player.EnableColliderForKick(true, 0);
-                animator.SetTrigger("KickTrigger");
+                animator.SetTrigger("AxeKickTrigger");
                 StartCoroutine(ResetMovement(1f));
             }
             _playerState = PlayerAnimationState.kick;
@@ -320,9 +320,9 @@ public class InputManager_Player : MonoBehaviour
             {
                 animator.SetBool("Walk Forward", false);
                 animator.SetBool("Walk Backward", false);
-                animator.ResetTrigger("KickTrigger");
+                animator.ResetTrigger("AxeKickTrigger");
                 _playerManager_Player.EnableColliderForKick(true, 0);
-                animator.SetTrigger("KickTrigger");
+                animator.SetTrigger("AxeKickTrigger");
                 StartCoroutine(ResetMovement(1f));
             }
             _playerState = PlayerAnimationState.forwardKick;
@@ -340,9 +340,9 @@ public class InputManager_Player : MonoBehaviour
             {
                 animator.SetBool("Walk Forward", false);
                 animator.SetBool("Walk Backward", false);
-                animator.ResetTrigger("KickTrigger");
+                animator.ResetTrigger("AxeKickTrigger");
                 _playerManager_Player.EnableColliderForKick(true, 0);
-                animator.SetTrigger("KickTrigger");
+                animator.SetTrigger("AxeKickTrigger");
                 StartCoroutine(ResetMovement(1f));
             }
             _playerState = PlayerAnimationState.backwardkick;
@@ -360,7 +360,7 @@ public class InputManager_Player : MonoBehaviour
             {
                 animator.SetBool("Walk Forward", false);
                 animator.SetBool("Walk Backward", false);
-                animator.SetTrigger("JabTrigger");
+                animator.SetTrigger("KickTrigger");
                 _playerManager_Player.EnableColliderForJab(true, 0);
                 StartCoroutine(ResetMovement(1f));
             }
@@ -378,9 +378,9 @@ public class InputManager_Player : MonoBehaviour
             {
                 animator.SetBool("Walk Forward", false);
                 animator.SetBool("Walk Backward", false);
-                animator.ResetTrigger("JabTrigger");
+                animator.ResetTrigger("KickTrigger");
                 _playerManager_Player.EnableColliderForJab(true, 0);
-                animator.SetTrigger("JabTrigger");
+                animator.SetTrigger("KickTrigger");
                 StartCoroutine(ResetMovement(1f));
             }
             _playerState = PlayerAnimationState.forwardJab;
@@ -398,9 +398,9 @@ public class InputManager_Player : MonoBehaviour
             {
                 animator.SetBool("Walk Forward", false);
                 animator.SetBool("Walk Backward", false);
-                animator.ResetTrigger("JabTrigger");
+                animator.ResetTrigger("KickTrigger");
                 _playerManager_Player.EnableColliderForJab(true, 0);
-                animator.SetTrigger("JabTrigger");
+                animator.SetTrigger("KickTrigger");
                 StartCoroutine(ResetMovement(1f));
             }
             _playerState = PlayerAnimationState.backwardJab;

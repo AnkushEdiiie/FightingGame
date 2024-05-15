@@ -476,7 +476,7 @@ public partial class @Player_2_Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9d950793-ce61-4aa6-965b-5027e6cedd89"",
-                    ""path"": ""<Keyboard>/numpad8"",
+                    ""path"": ""<Keyboard>/numpad5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -498,7 +498,7 @@ public partial class @Player_2_Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""6e5fe7ea-62f5-4118-9abc-9d65146dc874"",
-                    ""path"": ""<Keyboard>/numpad5"",
+                    ""path"": ""<Keyboard>/numpad8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -597,7 +597,7 @@ public partial class @Player_2_Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""461f0ba9-57a9-424f-b329-5dcff48fdd5b"",
-                    ""path"": ""<Keyboard>/numpad8"",
+                    ""path"": ""<Keyboard>/numpad5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -630,7 +630,7 @@ public partial class @Player_2_Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""0f75a75a-3a18-41ce-86e4-b135ae4b39b7"",
-                    ""path"": ""<Keyboard>/numpad8"",
+                    ""path"": ""<Keyboard>/numpad5"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -729,7 +729,7 @@ public partial class @Player_2_Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""5ae65b83-a28f-4097-b586-e9293fb90be1"",
-                    ""path"": ""<Keyboard>/numpad5"",
+                    ""path"": ""<Keyboard>/numpad8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -762,7 +762,7 @@ public partial class @Player_2_Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""45320482-992f-4189-ad72-cdc19ed72033"",
-                    ""path"": ""<Keyboard>/numpad5"",
+                    ""path"": ""<Keyboard>/numpad8"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -828,7 +828,7 @@ public partial class @Player_2_Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""777e7069-9037-422e-997e-1d0ff5cac40e"",
-                    ""path"": ""<Keyboard>/numpad8"",
+                    ""path"": ""<Keyboard>/numpad4"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
