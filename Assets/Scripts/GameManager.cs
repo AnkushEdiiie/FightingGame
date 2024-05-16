@@ -1,5 +1,7 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
     public Slider _player_1_HeathBar;
     public Slider _player_2_HeathBar;
 
+    public CinemachineTargetGroup _targetGroup;
     private void Start()
     {
         StartCoroutine("Instantiate_Players");
@@ -43,7 +46,8 @@ public class GameManager : MonoBehaviour
         Player_2_parent.GetComponent<InputManager_Player>()._playerManager_Player = _player_2.GetComponent<PlayerManager>();
 
         Player_2_parent.GetComponent<InputManager_Player>().GetRotationMultiplier();
-
+        _targetGroup.AddMember(_player_1.transform, 1,5);
+        _targetGroup.AddMember(_player_2.transform, 1,5);
         yield return new WaitForSeconds(0.1f);
     }
 
@@ -85,5 +89,4 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
 }

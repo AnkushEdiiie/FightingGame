@@ -74,15 +74,6 @@ public class PlayerManager : MonoBehaviour
         _rightLeg_Collider.enabled = _enable;
     }
 
-    //public void EnableAndDisable_Colliders_Player(bool enable, int _playerIndex)
-    //{
-    //    // Player Index is not used yet but can be used in future
-    //    foreach (Collider _col in _colliders)
-    //    {
-    //        _col.enabled = enable;
-    //    }
-    //}
-
 
     private void OnTriggerEnter(Collider other)
     {

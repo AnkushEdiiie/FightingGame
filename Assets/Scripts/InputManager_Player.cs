@@ -153,7 +153,7 @@ public class InputManager_Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(canMoveActually)
+        if (canMoveActually)
         {
             moveCharacter(movement);
         }
@@ -162,12 +162,11 @@ public class InputManager_Player : MonoBehaviour
     {
         // Convert direction into Rigidbody space.
         //Debug.Log("Movement Speed is-->>" + movementSpeed);
-        if(movement.y == 0) 
+        if (movement.y == 0) 
         {
             direction = this.transform.forward * direction.x;
             _rigidBody_Player.MovePosition(_rigidBody_Player.position + direction * movementSpeed * Time.fixedDeltaTime);
         }
-        
     }
 
 
@@ -511,4 +510,5 @@ public class InputManager_Player : MonoBehaviour
         _playerManager_Player.DisableAllColliders(false, 0);
         animator.applyRootMotion = false;
     }
+
 }
